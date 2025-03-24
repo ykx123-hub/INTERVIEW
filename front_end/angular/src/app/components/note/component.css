@@ -5,4 +5,30 @@
 #note-save-button {
     width: 200px;
     height: 60px;
-}
+
+    /* 使按钮成为圆角胶囊形 */
+    border-radius: 9999px; /* 或 24px, 让圆角较大 */
+    
+    /* 基础外观 */
+    background-color: #ffffff; /* 白色背景 */
+    color: #0c0c0c;            /* 蓝色文字，可按需替换 */
+    border: 2px solid #c0c0c0; /* 浅灰色边框 */
+    
+    /* 尺寸与排版 */
+    font-size: 16px;
+    padding: 8px 24px;         /* 内边距，使按钮更饱满 */
+    text-transform: none;      /* 去除 Angular Material 默认的大写转换 */
+    
+    /* 移除阴影，若使用 mat-button 并想保持扁平效果 */
+    box-shadow: none;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    font-size: 18px;    /* 字体变大 */
+    font-weight: bold;  /* 字体加粗 */
+  }
+  
+  /* 悬停时可做轻微变化，让用户有交互反馈 */
+  #note-save-button:hover {
+    background-color: #f2f2f2;
+    border-color: #a8a8a8;
+  }

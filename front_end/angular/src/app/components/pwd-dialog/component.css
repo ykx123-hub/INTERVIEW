@@ -1,0 +1,26 @@
+#pwd-field {
+    width: 100%;
+}
+
+.custom-button {
+    /* 基础外观 */
+    background-color: #dddbdb; /* 浅色背景，可根据需要修改 */
+    color: black;           /* 蓝色文字，可根据需要修改 */
+    border: none;             /* 去除默认边框 */
+    border-radius: 24px;      /* 调整圆角大小，24px 形成“胶囊”形状 */
+    padding: 8px 20px;        /* 内边距，让按钮看起来更饱满 */
+    min-width: 120px;          /* 设定最小宽度，防止文字过短时按钮过窄 */
+    height: 40px;
+  
+    /* 文字样式 */
+    font-size: 16px;
+    font-weight: 500;
+  
+    /* 交互效果：鼠标悬停 */
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+.custom-button:hover {
+    background-color: #ffffff; /* 悬停时稍微变亮 */
+    box-shadow: 0 2px 4px rgba(5, 177, 203, 0.5); /* 加一点阴影 */
+  }

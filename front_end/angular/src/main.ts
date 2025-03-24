@@ -1,12 +1,13 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
-import { AppComponent } from './app/app.component';
 
 import { environment } from './environments/environment';
+import { AppComponent } from './app/app.component';
 import { OpenViduComponentsModule, OpenViduComponentsConfig } from 'openvidu-components-angular';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const config: OpenViduComponentsConfig = {
 	production: environment.production,

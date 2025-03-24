@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import {NoteComponent} from '../note/note.component'
@@ -11,14 +11,19 @@ import {NoteComponent} from '../note/note.component'
   template: `
     <div>
       <mat-tab-group>
-        <mat-tab label="面试备注">
-          <app-note></app-note>
-        </mat-tab>
+        @if(isHr){
+          <mat-tab label="面试备注">
+            <app-note [APPLICATION_SERVER_URL]="APPLICATION_SERVER_URL"
+            [roomId]="roomId"></app-note>
+          </mat-tab>
+        }
       </mat-tab-group>
     </div>
   `,
   styles: ``
 })
 export class FunctionComponent {
-  
+  @Input() APPLICATION_SERVER_URL!: string;
+  @Input() roomId!: string;
+  @Input() isHr!: boolean;
 }
