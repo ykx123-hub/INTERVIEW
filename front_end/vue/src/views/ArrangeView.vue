@@ -204,8 +204,23 @@ function removeInterviewer(idx) {
   form.value.hrList.splice(idx, 1)
 }
 
+// 判断数据类型
+function getType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+}
+
+function isType(value, type) {
+  return getType(value) === type.toLowerCase();
+}
+
 // 提交表单
 async function handleSubmit() {
+  // 检查是否选择面试时间
+  if (isType(form.value.time, "number")){
+    alert("请选择面试时间！")
+    return
+  }
+
   // 将date转换为整数时间戳
   form.value.time = new Date(date.value).getTime()
 

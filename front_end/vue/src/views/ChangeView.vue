@@ -247,7 +247,7 @@ async function handleSubmit() {
   
 
   // 面试安排成功通知
-  alert("面试安排成功！")
+  alert("面试修改成功！")
 
   // 跳转到面试管理界面
   await router.push({

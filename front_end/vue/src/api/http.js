@@ -5,9 +5,9 @@ const http = axios.create({
     timeout: 5000
 })
 
-export async function sendGet(api) {
+export async function sendGet(api, config={}) {
     try {
-        const response = await http.get(api)
+        const response = await http.get(api, config)
         console.log('Get 成功：', response)
         return response.data
     } catch (err) {
@@ -15,9 +15,9 @@ export async function sendGet(api) {
     }
 }
 
-export async function sendPost(api, body) {
+export async function sendPost(api, body, config) {
     try {
-        const response = await http.post(api, body)
+        const response = await http.post(api, body, config)
         console.log('POST 成功：', response)
         return response.data
     } catch (err) {
@@ -25,9 +25,9 @@ export async function sendPost(api, body) {
     }
 }
 
-export async function sendPut(api, body) {
+export async function sendPut(api, body, config) {
     try {
-        const response = await http.put(api, body)
+        const response = await http.put(api, body, config)
         console.log('PUT 成功：', response)
         return response.data
         // 更新 data 或提示用户成功

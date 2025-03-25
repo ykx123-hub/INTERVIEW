@@ -42,8 +42,7 @@
 <script setup>
 import {onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
-import axios from 'axios'
-// import dayjs from 'dayjs'
+import {sendGet} from "@/api/http";
 
 const router = useRouter()
 let hrName;
@@ -56,8 +55,9 @@ onMounted(async() => {
   const params = new URLSearchParams();
   params.append('hrName', hrName);  // 将 hrName 添加为查询参数
 
-  let response = await axios.get('http://127.0.0.1:6080' + `/room/get_all_rooms`, {params})
-  interviews.value = response.data.data
+  // let response = await axios.get('http://127.0.0.1:6080' + `/room/get_all_rooms`, {params})
+  let data = await sendGet(`/room/get_all_rooms`, {params})
+  interviews.value = data.data
 })
 
 // 编辑按钮点击处理函数

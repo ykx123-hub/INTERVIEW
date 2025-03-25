@@ -17,7 +17,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import {FunctionComponent} from './components/function/function.component'
 import { PwdDialogComponent } from './components/pwd-dialog/pwd-dialog.component';
-import { TokenResponse } from './models/api-response.model';
 
 
 @Component({
@@ -75,8 +74,8 @@ export class AppComponent {
 	// For local development, leave these variables empty
 	// For production, configure them with correct URLs depending on your deployment
 
-	APPLICATION_SERVER_URL = 'http://localhost:6080/';
-	LIVEKIT_URL = '';
+	APPLICATION_SERVER_URL = 'http://10.63.189.110:6080/';
+	LIVEKIT_URL = 'ws://10.63.189.110:7880/';
 
 	// 入会权限验证
 	isAuthorized: boolean = false;
@@ -100,7 +99,6 @@ export class AppComponent {
 	token!: string;
 
 	/* function-component */
-
 	constructor(
 		private httpClient: HttpClient,
 		private participantService: ParticipantService,
@@ -121,8 +119,7 @@ export class AppComponent {
 			if (window.location.hostname === 'localhost') {
 				this.APPLICATION_SERVER_URL = 'http://localhost:6080/';
 			} else {
-				this.APPLICATION_SERVER_URL =
-					'https://' + window.location.hostname + ':6443/';
+				this.APPLICATION_SERVER_URL = 'https://' + window.location.hostname + ':6443/';
 			}
 		}
 
