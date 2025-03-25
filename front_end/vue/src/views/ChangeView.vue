@@ -187,7 +187,7 @@ onMounted(async () => {
   const route = useRoute()
   const passedData = route.query.data ? JSON.parse(route.query.data) : {}
   roomId = passedData.roomId
-  let data = await sendGet(`/room/get_room/${passedData.roomId}`)
+  let data = await sendGet(`/room/get_room/${passedData.roomId}`, {headers:{"Authorization":hrName}})
   date.value = data.data.scheduledTime
   form.value = data.data
   form.value.period = data.data.interviewPeriod
@@ -240,7 +240,7 @@ async function handleSubmit() {
   let newForm = convertForm(form);
 
   // 向后端发送数据
-  let data = await sendPut(`/room/update/${roomId}`, newForm)
+  let data = await sendPut(`/room/update/${roomId}`, newForm, {headers:{"Authorization":hrName}})
   alert(data.status)
 
   // 处理后端返回数据，并向主系统后端发送请求，让主系统后端对面试者进行通知

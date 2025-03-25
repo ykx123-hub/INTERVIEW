@@ -52,11 +52,8 @@ hrName = "yyy"
 const interviews = ref([])
 
 onMounted(async() => {
-  const params = new URLSearchParams();
-  params.append('hrName', hrName);  // 将 hrName 添加为查询参数
-
   // let response = await axios.get('http://127.0.0.1:6080' + `/room/get_all_rooms`, {params})
-  let data = await sendGet(`/room/get_all_rooms`, {params})
+  let data = await sendGet(`/room/get_all_rooms`, {headers:{"Authorization":hrName}})
   interviews.value = data.data
 })
 

@@ -33,6 +33,7 @@ import { PwdDialogComponent } from './components/pwd-dialog/pwd-dialog.component
 			(onTokenRequested)="onTokenRequested($event)"
 			[toolbarDisplayLogo]="false"
 			[toolbarActivitiesPanelButton]="false"
+			[lang]="'cn'"
 		>
 			<!-- 会议录制按钮 -->
 			<div *ovToolbarAdditionalButtons style="text-align: center;">
@@ -137,7 +138,6 @@ export class AppComponent {
 	async onTokenRequested(participantName: string) {
 		const token  = await this.getToken(this.roomName, participantName);
 		this.token = token;
-		alert(this.token);
 	}
 
 	// Toggles the camera on/off.

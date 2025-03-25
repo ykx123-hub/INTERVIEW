@@ -175,9 +175,7 @@ const form = ref({
   period: '',
   roomName: '',
   // 面试时间
-  time: -1,
-  // 当前操作的hr
-  hrName: ''
+  time: -1
 })
 
 // 新增候选人
@@ -216,7 +214,7 @@ function isType(value, type) {
 // 提交表单
 async function handleSubmit() {
   // 检查是否选择面试时间
-  if (isType(form.value.time, "number")){
+  if (!isType(form.value.time, "number")){
     alert("请选择面试时间！")
     return
   }
@@ -224,16 +222,13 @@ async function handleSubmit() {
   // 将date转换为整数时间戳
   form.value.time = new Date(date.value).getTime()
 
-  // 添加hrName
-  form.value.hrName = hrName
-
   // 转字符串
   let newForm = convertForm(form);
 
   alert(newForm.hrList)
 
   // 向后端发送数据
-  let data = await sendPost("/room/create", newForm)
+  let data = await sendPost("/room/create", newForm, {headers:{"Authorization":hrName}})
   let temp = data.data.roomId + "/" + data.data.roomPwd
   alert(temp)
 
@@ -271,8 +266,7 @@ function handleReset() {
     position: '',
     period: '',
     RoomName: '',
-    time: '',
-    hrName: ''
+    time: ''
   }
 }
 </script>
