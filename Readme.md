@@ -10,10 +10,10 @@ docker compose up
 
 ```
 cd front_end/vue
-npm start
+npm run serve
 ```
 
 ```
 cd front_end/angular
-npm run serve
+npm start
 ```
