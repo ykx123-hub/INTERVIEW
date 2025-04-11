@@ -150,14 +150,13 @@ import {ref, onMounted} from 'vue'
 import { Plus, Delete} from '@element-plus/icons-vue'
 import { useRoute, useRouter } from 'vue-router'
 import {sendGet, sendPut} from "@/api/http";
-
+const date = ref('')
 const hrName = "yyy"
 let roomId = ''
 const router = useRouter()
 
 
 // 表单数据
-const date = ref('');
 const formRef = ref(null)
 const form = ref({
   // 候选人列表
@@ -177,7 +176,7 @@ const form = ref({
   period: '',
   roomName: '',
   // 面试时间
-  time: -1,
+  time: '',
   // 当前操作的hr
   hrName: ''
 })

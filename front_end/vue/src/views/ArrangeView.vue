@@ -125,7 +125,7 @@
 
           <el-form-item label="面试时间">
             <el-date-picker
-                v-model="date"
+                v-model="form.time"
                 type="datetime"
                 placeholder="选择时间"
                 format="YYYY-MM-DD HH:mm:ss"
@@ -155,7 +155,6 @@ const hrName = "yyy"
 const router = useRouter()
 
 // 表单数据
-const date = ref(-1)
 const formRef = ref(null)
 const form = ref({
   // 候选人列表
@@ -175,7 +174,7 @@ const form = ref({
   period: '',
   roomName: '',
   // 面试时间
-  time: -1,
+  time: '',
   // 当前操作的hr
   hrName: ''
 })
@@ -216,13 +215,13 @@ function isType(value, type) {
 // 提交表单
 async function handleSubmit() {
   // 检查是否选择面试时间
-  if (isType(date.value, "number")){
+  if (!isType(form.value.time, "date")){
     alert("请选择面试时间！")
     return
   }
 
   // 将date转换为整数时间戳
-  form.value.time = new Date(date.value).getTime()
+  form.value.time = new Date(form.value.time).getTime()
 
   // 添加hrName
   form.value.hrName = hrName
