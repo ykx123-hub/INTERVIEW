@@ -155,7 +155,7 @@ const hrName = "yyy"
 const router = useRouter()
 
 // 表单数据
-const date = ref('')
+const date = ref(-1)
 const formRef = ref(null)
 const form = ref({
   // 候选人列表
@@ -216,7 +216,7 @@ function isType(value, type) {
 // 提交表单
 async function handleSubmit() {
   // 检查是否选择面试时间
-  if (isType(form.value.time, "number")){
+  if (isType(date.value, "number")){
     alert("请选择面试时间！")
     return
   }

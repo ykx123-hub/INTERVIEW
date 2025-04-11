@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import {FunctionComponent} from './components/function/function.component'
 import { PwdDialogComponent } from './components/pwd-dialog/pwd-dialog.component';
+import {zh_CN} from "ng-zorro-antd/i18n";
 
 
 @Component({
@@ -32,7 +33,8 @@ import { PwdDialogComponent } from './components/pwd-dialog/pwd-dialog.component
 			[livekitUrl]="LIVEKIT_URL"
 			(onTokenRequested)="onTokenRequested($event)"
 			[toolbarDisplayLogo]="false"
-			[toolbarActivitiesPanelButton]="false"
+			[toolbarActivitiesPanelButton]="false",
+			[lang]="'cn'"
 		>
 			<!-- 会议录制按钮 -->
 			<div *ovToolbarAdditionalButtons style="text-align: center;">
@@ -74,8 +76,8 @@ export class AppComponent {
 	// For local development, leave these variables empty
 	// For production, configure them with correct URLs depending on your deployment
 
-	APPLICATION_SERVER_URL = 'http://10.63.189.110:6080/';
-	LIVEKIT_URL = 'ws://10.63.189.110:7880/';
+	APPLICATION_SERVER_URL = 'https://10.63.154.113:6080/';
+	LIVEKIT_URL = 'wss://10-63-154-113.openvidu-local.dev:7443';
 
 	// 入会权限验证
 	isAuthorized: boolean = false;
@@ -228,4 +230,6 @@ export class AppComponent {
 			throw error;
 		}
 	}
+
+	protected readonly zh_CN = zh_CN;
 }

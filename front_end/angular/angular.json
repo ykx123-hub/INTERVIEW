@@ -105,7 +105,13 @@
               "buildTarget": "openvidu-toolbar-buttons:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "ssl": true,
+            "sslKey": "server.key",
+            "sslCert": "server.crt"
+          }
+
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
